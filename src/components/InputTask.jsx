@@ -1,8 +1,9 @@
 import React,{useState} from 'react'
+import TaskList from './TaskList'
 
-export default function InputTask() {
+export default function InputTask({addTask}) {
   const[title,setTitle] = useState("")
-  const[Todos,setTodos] = useState([])
+  
   
   function handleChange(event){
     setTitle(()=>{
@@ -10,18 +11,19 @@ export default function InputTask() {
     })
   }
 
-  function addTask(event)
+  function Add(event)
   { 
     event.preventDefault()
     
     let new_todo = {
         "title": title
     }
-    setTodos(oldtodo => [...oldtodo,new_todo])
-
+    addTask(new_todo)
     setTitle((title)=>{return ""})
     
   }
+
+
 
   return (
     <div className='data-input'>
@@ -32,10 +34,9 @@ export default function InputTask() {
             value = {title}
             placeholder = "Task Name"
             />
-            <button onClick={addTask}>Add</button>
-
+            <button onClick={Add}>Add</button>
         </form>
-      
+     
     </div>
   )
 }
