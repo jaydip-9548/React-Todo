@@ -9,19 +9,32 @@ function App() {
   
 
   const addTask = (todo)=>{
-    
     setTodos(oldtodo => [...oldtodo,todo])
   }
+
   const deleteItem = (key)=>{
-    console.log("delete")
-    Todos.splice(key,key)
-   setTodos(Todos)
-   console.log("Completes")
+   
+      const removeItem = Todos.filter((todo,index)=>{
+      
+      return index !== parseInt(key)
+    })
+    setTodos(removeItem)
    }
+
+   const updateItem = (event,newTitle)=>{
+    event.preventDefault()
+
+    let id = parseInt(event.target.id)
+    let pp = [...Todos]
+    pp[id].title = newTitle
+    
+    setTodos(pp)
+    
+   }
+
   const element = Todos.map((item,index)=>{
-    console.log(index)
     return(
-      <TaskList key={index} id={index} title={item.title} deleteItem={deleteItem} />
+      <TaskList key={index} id={index} title={item.title} deleteItem={deleteItem} updateItem={updateItem}/>
     )
    })
   

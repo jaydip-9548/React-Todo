@@ -1,16 +1,75 @@
 @border: 1px solid black;
 @width:700px;
-
+@pad_input:10px;
+@font_input:19px;
 
 .container{
     border: @border;
     margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: antiquewhite;
+    width: @width;
+    display: flex;
+    justify-content: center;
     .title{
-        display: inline-block;
-        width: @width;
+        width: 80%;
+        font-size: 20px;
+        margin: 4px;
     }
-}
+    
+        button{
+            padding: 8px;
+            margin-right: 6px;
+            
+        }
+    }
+    .notediting{
+      display: none;
+      z-index: 1px;
+    }
+.edite{
+        border: @border;
+        width: 300px;
+        height: 100px;
+        position: absolute;
+        top: 100px;
+        left: 400px;
+        display: inline;
+        z-index: 4;
+        background-color: aqua;
+
+        input,button{
+            padding: 5px;
+            margin: 5px;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }}
 
 .data-input{
     margin: 10px;
+
+    input{
+        padding: @pad_input;
+        margin-right: 10px;
+        font-size: @font_input;
+        border-radius: 10px;
+    }
+    button{
+        padding: @pad_input;
+        border-radius: 10px;
+        background-color: blue;
+        color: white;
+    }
+    button:hover{
+        cursor: pointer;
+    }
+}
+
+.App{
+    background-color:rgb(255, 206, 146);
+    margin: 0px;
+    height: 100vh;
+
 }

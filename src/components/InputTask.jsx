@@ -23,8 +23,6 @@ export default function InputTask({addTask}) {
     
   }
 
-
-
   return (
     <div className='data-input'>
 
